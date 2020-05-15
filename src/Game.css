@@ -1,0 +1,9 @@
+.Container !important {
+  margin: 0 auto !important;
+  border-collapse: collapse !important;
+  border-style: hidden !important;
+}
+.Container .Row {
+  padding: 1rem !important;
+  border: 5px solid white !important;
+}
