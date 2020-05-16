@@ -1,6 +1,6 @@
-import { PLAY_MOVE } from "../actionTypes";
+import { PLAY_MOVE, NEW_GAME } from "../actionTypes";
 
-var initialState = {
+const initialState = {
   board: {
     topLeft: '',
     top: '',
@@ -27,9 +27,23 @@ const gameMechanics = (state = initialState, action) => {
           playerOnesTurn: !state.playerOnesTurn
         }
       }
-
-    }
-    default:
+      return state
+    } case NEW_GAME: {
+      return {
+        board: {
+          topLeft: '',
+          top: '',
+          topRight: '',
+          left: '',
+          middle: '',
+          right: '',
+          botLeft: '',
+          bot: '',
+          botRight: ''
+        },
+        playerOnesTurn: true
+      };
+    } default:
       return state;
   }
 }

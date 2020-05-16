@@ -1,19 +1,13 @@
 import React from 'react';
 
-import { connect, useSelector, useDispatch } from "react-redux";
-import { playMove} from "../redux/actions";
-import { gameMechanics } from "../redux/actions";
+import { useSelector } from "react-redux";
 
 import Container from 'react-bootstrap/Container';
 import GameRow from './GameRow';
+import NewGame from './NewGame';
 
 export default function Game() {
   var player = useSelector(state => state.gameMechanics).playerOnesTurn;
-  var dispatch = useDispatch();
-  var handleOnClick = (e) => {
-    (playMove(e.target.id));
-    e.target.innerHTML = player ? 'X' : 'O';
-  };
   var containerStyle = {
     width: '33%',
     margin:'0 auto',
@@ -30,6 +24,7 @@ export default function Game() {
       {GameRow(rows.slice(0,3))}
       {GameRow(rows.slice(3,6))}
       {GameRow(rows.slice(6,9))}
+      <NewGame></NewGame>
     </Container>
     );
 };

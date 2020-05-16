@@ -1,8 +1,7 @@
 import React from 'react';
 
-import { connect, useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { playMove} from "../redux/actions";
-import { gameMechanics } from "../redux/actions";
 
 import Col from 'react-bootstrap/Col';
 
@@ -14,13 +13,12 @@ export default function GameCol(id) {
       minHeight: '10vw'
   };
   var state = useSelector(state => state.gameMechanics)
-  var player = state.playerOnesTurn;
   var dispatch = useDispatch();
   var handleOnClick = (e) => {
     dispatch(playMove(e.target.id));
   };
 
   return (
-    <Col id={id} style={colStyle} onClick={handleOnClick}>{state.board[id]}</Col>
+    <Col id={id} style={colStyle} onClick={handleOnClick} key={id}>{state.board[id]}</Col>
   )
 };
