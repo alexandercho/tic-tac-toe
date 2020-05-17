@@ -13,7 +13,7 @@ const initialState = {
     botRight: ''
   },
   playerOnesTurn: true,
-  gameWinner: false
+  gameWinner: ''
 };
 function getGameWinner(board) {
   //horizontal
@@ -50,7 +50,7 @@ function getGameWinner(board) {
 const gameMechanics = (state = initialState, action) => {
   switch (action.type) {
     case PLAY_MOVE: {
-      if (!state.board[action.payload] && !getGameWinner(state)) {
+      if (!state.board[action.payload] && state.gameWinner === '') {
         console.log('empty box clicked')
         const boxName = action.payload
         let newBoard = state.board;
