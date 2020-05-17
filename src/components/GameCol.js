@@ -7,10 +7,10 @@ import Col from 'react-bootstrap/Col';
 
 export default function GameCol(id) {
   var colStyle = {
-      padding: '1rem',
+      padding: '0',
       fontSize: '4vw',
       border: '5px solid white',
-      minHeight: '10vw'
+      minHeight: '8vw'
   };
   var state = useSelector(state => state.gameMechanics)
   var dispatch = useDispatch();

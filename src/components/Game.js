@@ -1,17 +1,13 @@
 import React from 'react';
-
-import { useSelector } from "react-redux";
-
 import Container from 'react-bootstrap/Container';
 import GameRow from './GameRow';
 import NewGame from './NewGame';
+import Announcer from './Announcer';
 
 export default function Game() {
-  var player = useSelector(state => state.gameMechanics).playerOnesTurn;
   var containerStyle = {
-    width: '33%',
-    margin:'0 auto',
-    height: '100vw'
+    width: '30%',
+    margin:'0 auto'
   };
 
   const rows = ['topLeft','top','topRight',
@@ -20,10 +16,11 @@ export default function Game() {
 
   return (
     <Container style={containerStyle}>
-      <h1>Player {player ? '1' : '2'}'s Turn</h1>
+      <Announcer></Announcer>
       {GameRow(rows.slice(0,3))}
       {GameRow(rows.slice(3,6))}
       {GameRow(rows.slice(6,9))}
+      <br></br>
       <NewGame></NewGame>
     </Container>
     );

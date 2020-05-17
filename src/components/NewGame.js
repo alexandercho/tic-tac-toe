@@ -17,6 +17,6 @@ export default function NewGame() {
   };
 
   return (
-    <Button onClick={handleOnClick}>New Game</Button>
+    <Button variant='light' block onClick={handleOnClick}>New Game</Button>
     );
 };
